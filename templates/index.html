@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Generator</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script>
+    window.onload = function() {
+      var rangeInput = document.getElementById('range');
+      var lengthDisplay = document.getElementById('length');
+
+      rangeInput.addEventListener('input', function() {
+        lengthDisplay.textContent = rangeInput.value;
+      });
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">Password Generator</h2>
+    <form method="POST" action="{{ url_for('process') }}">
+      <label class="box">
+        <input id="range" name="range" class="range" type="range" min="7" max="15" />
+        <span>Length: <span id="length">11</span></span>
+      </label>
+
+      <div class="box">
+        <label class="toggle">
+          <span>Include uppercase</span>
+          <input id="uppercase" name="uppercase" type="checkbox" value="1" />
+        </label>
+      </div>
+
+      <div class="box">
+        <label class="toggle">
+          <span>Include numbers</span>
+          <input id="numbers" name="numbers" type="checkbox" value="1" />
+        </label>
+      </div>
+
+      <div class="box">
+        <label class="toggle">
+          <span>Include symbols</span>
+          <input id="symbols" name="symbols" type="checkbox" value="1" />
+        </label>
+      </div>
+                    
+                    <div class="action">
+                        <div class="field">
+                        <input id="password" class="password" type="text" placeholder="Password" value="{{ password }}"  readonly/>
+                    </div>
+                    
+                    <div class="buttons">
+                        <button id="generate_button" type="submit" value="Submit" >Generate Password</button>
+                        <span class="message" id="message"></span>
+                    </div>
+                    
+                    </div>
+                
+                </div>
+            </form>
+</body>
+</html>
