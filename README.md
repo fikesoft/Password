@@ -17,8 +17,7 @@ git clone https://github.com/fikesoft/Password
 
 ## Configuration
 
-Before running the application, you need to configure the database connection. Open the `config.js` file and update the database credentials accordingly.
-
+Before running the application, you need to configure the database connection. 
 ## Usage
 
 1. Start the application:
